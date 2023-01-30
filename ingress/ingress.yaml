@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ark-ingress
+  namespace: ark-dev
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: nacos.ark.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: nacos
+                port:
+                  number: 8848
+            path: /nacos
+            pathType: Prefix
+    - host: iam.ark.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: ark-center-iam
+                port:
+                  number: 8080
+            path: /
+            pathType: Prefix
