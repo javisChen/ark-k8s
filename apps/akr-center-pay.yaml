@@ -1,22 +1,21 @@
-# IAM
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ark-center-order
+  name: ark-center-pay
   namespace: ark-dev
   labels:
-    app: ark-center-order
+    app: ark-center-pay
 spec:
   replicas: 1
   template:
     metadata:
-      name: ark-center-order
+      name: ark-center-pay
       labels:
-        app: ark-center-order
+        app: ark-center-pay
     spec:
       containers:
-        - name: ark-center-order
-          image: ark-center-order:v1
+        - name: ark-center-pay
+          image: ark-center-pay:v1
           imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
@@ -31,15 +30,15 @@ spec:
       restartPolicy: Always
   selector:
     matchLabels:
-      app: ark-center-order
+      app: ark-center-pay
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: ark-center-order
+  name: ark-center-pay
 spec:
   selector:
-    app: ark-center-order
+    app: ark-center-pay
   ports:
     - port: 8085
   type: NodePort
