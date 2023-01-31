@@ -1,62 +1,47 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: nacos-configmap
-  namespace: ark-dev
-data:
-  PREFER_HOST_MODE: "hostname"
-  MODE: "standalone"
-  SPRING_DATASOURCE_PLATFORM: "mysql"
-  MYSQL_SERVICE_HOST: "gz-cynosdbmysql-grp-irl7x9ar.sql.tencentcdb.com"
-  MYSQL_SERVICE_PORT: "20716"
-  MYSQL_SERVICE_DB_NAME: "nacos_config"
-  MYSQL_SERVICE_USER: "kt_cloud8888"
-  MYSQL_SERVICE_PASSWORD: "Kt.cloud1234!@#$"
-  MYSQL_SERVICE_DB_PARAM: "characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=Asia/Shanghai"
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nacos
+  name: rocketmq
   namespace: ark-dev
   labels:
-    app: nacos
+    app: rocketmq
 spec:
   replicas: 1
   template:
     metadata:
-      name: nacos
+      name: rocketmq
       labels:
-        app: nacos
+        app: rocketmq
     spec:
       containers:
-        - name: nacos
-          image: nacos/nacos-server:v2.1.1-slim
+        - name: rocketmq
+          image: king019/rocketmq
           imagePullPolicy: IfNotPresent
-          envFrom:
-            - configMapRef:
-                name: nacos-configmap
+          env:
+            - name: JAVA_OPT_EXT
+              value: '-Xms128m -Xmx128m -Xmn64m -XX:MetaspaceSize=32m -XX:MaxMetaspaceSize=32m'
+#          resources:
+#            limits:
+#              memory: "1Gi"
+#              cpu: "2"
+#            requests:
+#              memory: "512Mi"
+#              cpu: "2"
       restartPolicy: Always
   selector:
     matchLabels:
-      app: nacos
+      app: rocketmq
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: nacos
+  name: rocketmq
   namespace: ark-dev
 spec:
   selector:
-    app: nacos
+    app: rocketmq
   ports:
-    - port: 8848
-      targetPort: 8848
+    - port: 9876
+      targetPort: 9876
       protocol: TCP
-      name: ui
-    - port: 9848
-      targetPort: 9848
-      protocol: TCP
-      name: grpc
-  type: NodePort
----
+      name: tcp
