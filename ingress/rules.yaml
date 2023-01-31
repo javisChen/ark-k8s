@@ -6,6 +6,16 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
+    - host: minio.ark.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: minio
+                port:
+                  number: 9100
+            path: /
+            pathType: Prefix
     - host: nacos.ark.com
       http:
         paths:
@@ -24,5 +34,15 @@ spec:
                 name: ark-center-iam
                 port:
                   number: 8080
+            path: /
+            pathType: Prefix
+    - host: gateway.ark.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: ark-center-gateway
+                port:
+                  number: 8082
             path: /
             pathType: Prefix

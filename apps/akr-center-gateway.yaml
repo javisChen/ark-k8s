@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ark-center-gateway
+  namespace: ark-dev
+  labels:
+    app: ark-center-gateway
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: ark-center-gateway
+      labels:
+        app: ark-center-gateway
+    spec:
+      containers:
+        - name: ark-center-gateway
+          image: ark-center-gateway:v1
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: ark-configmap
+          resources:
+            limits:
+              memory: "1Gi"
+              cpu: "2"
+            requests:
+              memory: "256Mi"
+              cpu: "1"
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: ark-center-gateway
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ark-center-gateway
+spec:
+  selector:
+    app: ark-center-gateway
+  ports:
+    - port: 8082
+  type: NodePort

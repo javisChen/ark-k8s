@@ -1,0 +1,45 @@
+# IAM
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ark-center-commodity
+  namespace: ark-dev
+  labels:
+    app: ark-center-commodity
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: ark-center-commodity
+      labels:
+        app: ark-center-commodity
+    spec:
+      containers:
+        - name: ark-center-commodity
+          image: ark-center-commodity:v1
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: ark-configmap
+          resources:
+            limits:
+              memory: "1Gi"
+              cpu: "2"
+            requests:
+              memory: "256Mi"
+              cpu: "1"
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: ark-center-commodity
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ark-center-commodity
+spec:
+  selector:
+    app: ark-center-commodity
+  ports:
+    - port: 8083
+  type: NodePort
