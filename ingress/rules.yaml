@@ -36,6 +36,16 @@ spec:
                   number: 8080
             path: /
             pathType: Prefix
+    - host: pay.ark.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: ark-center-pay
+                port:
+                  number: 8086
+            path: /
+            pathType: Prefix
     - host: gateway.ark.com
       http:
         paths:

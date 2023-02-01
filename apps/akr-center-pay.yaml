@@ -40,5 +40,5 @@ spec:
   selector:
     app: ark-center-pay
   ports:
-    - port: 8085
+    - port: 8086
   type: NodePort

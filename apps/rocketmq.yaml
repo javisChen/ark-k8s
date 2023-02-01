@@ -20,13 +20,18 @@ spec:
           env:
             - name: JAVA_OPT_EXT
               value: '-Xms128m -Xmx128m -Xmn64m -XX:MetaspaceSize=32m -XX:MaxMetaspaceSize=32m'
-#          resources:
-#            limits:
-#              memory: "1Gi"
-#              cpu: "2"
-#            requests:
-#              memory: "512Mi"
-#              cpu: "2"
+          command:
+            - /bin/sh
+            - -c
+          args:
+            - echo 'brokerIP1=rocketmq.ark-dev.svc' > opt/soft/rocketmq/conf/broker.properties && /docker.sh
+      #          resources:
+      #            limits:
+      #              memory: "1Gi"
+      #              cpu: "2"
+      #            requests:
+      #              memory: "512Mi"
+      #              cpu: "2"
       restartPolicy: Always
   selector:
     matchLabels:
@@ -44,4 +49,8 @@ spec:
     - port: 9876
       targetPort: 9876
       protocol: TCP
-      name: tcp
+      name: namesrv
+    - port: 10911
+      targetPort: 10911
+      protocol: TCP
+      name: broker
