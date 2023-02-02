@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ark-center-order
+  name: ark-center-trade
   namespace: ark-dev
   labels:
-    app: ark-center-order
+    app: ark-center-trade
 spec:
   replicas: 1
   template:
     metadata:
-      name: ark-center-order
+      name: ark-center-trade
       labels:
-        app: ark-center-order
+        app: ark-center-trade
     spec:
       containers:
-        - name: ark-center-order
-          image: ark-center-order:v1
+        - name: ark-center-trade
+          image: ark-center-trade:v1
           imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
@@ -30,15 +30,15 @@ spec:
       restartPolicy: Always
   selector:
     matchLabels:
-      app: ark-center-order
+      app: ark-center-trade
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: ark-center-order
+  name: ark-center-trade
 spec:
   selector:
-    app: ark-center-order
+    app: ark-center-trade
   ports:
     - port: 8085
   type: NodePort
