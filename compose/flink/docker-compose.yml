@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  jobmanager:
+    image: flink:1.14.0
+    ports:
+      - "8081:8081"
+    command: jobmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+      - JOB_MANAGER_RPC_PORT=6123
+      - JOB_MANAGER_HEAP_SIZE=1024m
+#    volumes:
+#      - ./jobmanager:/opt/flink/jobmanager
+
+  taskmanager:
+    image: flink:1.14.0
+    depends_on:
+      - jobmanager
+    command: taskmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+      - TASK_MANAGER_HEAP_SIZE=2048m
+#    volumes:
+#      - ./taskmanager:/opt/flink/taskmanager
