@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   jobmanager:
-    image: flink:1.14.0
+    image: flink:1.14.6-java11
     ports:
       - "8081:8081"
     command: jobmanager
@@ -11,9 +11,16 @@ services:
       - JOB_MANAGER_HEAP_SIZE=1024m
 #    volumes:
 #      - ./jobmanager:/opt/flink/jobmanager
-
-  taskmanager:
-    image: flink:1.14.0
+  taskmanager1:
+    image: flink:1.14.6-java11
+    depends_on:
+      - jobmanager
+    command: taskmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=jobmanager
+      - TASK_MANAGER_HEAP_SIZE=2048m
+  taskmanager2:
+    image: flink:1.14.6-java11
     depends_on:
       - jobmanager
     command: taskmanager
