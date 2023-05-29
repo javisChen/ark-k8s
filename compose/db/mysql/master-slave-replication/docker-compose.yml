@@ -1,0 +1,35 @@
+version: '3.3'
+services:
+  master:
+    image: mysql:5.7
+    restart: always
+    container_name: mysql-master
+    environment:
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'root'
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_LOG_BIN: ON
+      MYSQL_BINLOG_DO_DB: your_database_name
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - C:\docker\mysql\data\master:/var/lib/mysql
+  slave:
+    image: mysql:5.7
+    restart: always
+    container_name: mysql-slave
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'root'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3307:3306'
+    expose:
+      - '3306'
+    volumes:
+      - C:\docker\mysql\data\slave:/var/lib/mysql
+volumes:
+  my-db:
