@@ -5,7 +5,7 @@ services:
     image: nacos/nacos-server:v2.2.2-slim
     container_name: nacos
     env_file:
-      - ./env/nacos-standlone-mysql.env
+      - env/nacos-standalone-mysql.env
 #    volumes:
 #      - ./standalone-logs/:/home/nacos/logs
 #      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
