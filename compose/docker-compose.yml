@@ -29,13 +29,13 @@ services:
       - /bin/sh
       - -c
       - echo 'brokerIP1=${IP}' > opt/soft/rocketmq/conf/broker.properties && /docker.sh
-  rocket-console:
+  rocketmq-console:
     image: apacherocketmq/rocketmq-dashboard:latest
-    container_name: mqconsole
+    container_name: rocketmq-console
     ports:
       - "19876:8080"
     environment:
-      JAVA_OPTS: -Drocketmq.config.namesrvAddr=rocket.cloud.org:9876 -Drocketmq.config.isVIPChannel=false
+      JAVA_OPTS: -Drocketmq.config.namesrvAddr=rocketmq.ark-dev.svc:9876 -Drocketmq.config.isVIPChannel=false
   gateway:
     container_name: ark-center-gateway
     image: ark-center-gateway:v1
