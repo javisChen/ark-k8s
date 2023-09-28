@@ -6,9 +6,6 @@ services:
     container_name: nacos
     env_file:
       - env/nacos-standalone-mysql.env
-#    volumes:
-#      - ./standalone-logs/:/home/nacos/logs
-#      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
     ports:
       - "8848:8848"
       - "9848:9848"
@@ -91,10 +88,24 @@ services:
     image: ark-center-iam:v1
     restart: always
     ports:
-      - "8080:8080"    
+      - "8080:8080"
     volumes:
-#      - "/Users/chenjiawei/dev/docker/ark/iam:/app/logs/iam"
+      #      - "/Users/chenjiawei/dev/docker/ark/iam:/app/logs/iam"
       - "C:\\docker\\ark\\iam:/app/logs/iam"
+    env_file:
+      - ./env/service-common.env
+    depends_on:
+      - nacos
+      - redis
+  auth:
+    container_name: ark-center-auth
+    image: ark-center-auth:v1
+    restart: always
+    ports:
+      - "8089:8089"
+    volumes:
+      #      - "/Users/chenjiawei/dev/docker/ark/iam:/app/logs/iam"
+      - "C:\\docker\\ark\\auth:/app/logs/auth"
     env_file:
       - ./env/service-common.env
     depends_on:
@@ -157,9 +168,27 @@ services:
       MINIO_ROOT_USER: admin
       MINIO_ROOT_PASSWORD: admin123456
     volumes:
-      #      - "/Users/chenjiawei/dev/docker/minio/data:/data"
-      #      - "/Users/chenjiawei/dev/docker/minio/config:/root/.mini"
-      - "C:\\docker\\minio\\data:/data"
-      - "C:\\docker\\minio\\config:/root/.minio"
+      - ./minio/data:/data
+      - ./minio/config:/root/.minio
     command: server /data --console-address ":9100"
 
+  es-01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.7
+    container_name: es-01
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    restart: always
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+  kib-01:
+    image: docker.elastic.co/kibana/kibana:7.17.7
+    container_name: kib-01
+    volumes:
+      - ./elk/kibana/config:/usr/share/kibana/config
+    ports:
+      - "5601:5601"
+    restart: always
+    environment:
+      - ELASTICSEARCH_HOSTS=http://es-01:9200
