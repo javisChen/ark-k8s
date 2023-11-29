@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nacos:
-    image: nacos/nacos-server:v2.2.2-slim
+    image: nacos/nacos-server:v2.2.2-slim-ping
     container_name: nacos
     env_file:
       - env/nacos-standalone-mysql.env
@@ -27,13 +27,13 @@ services:
       GF_AUTH_ANONYMOUS_ENABLED: 'true'
       GF_AUTH_ANONYMOUS_ORG_ROLE: 'Admin'
   mysql:
-    image: mysql:5.7
+    image: mysql:8.0.35
     restart: always
     container_name: mysql
     environment:
       MYSQL_DATABASE: 'db'
       MYSQL_USER: 'user'
-      MYSQL_PASSWORD: 'root'
+      MYSQL_PASSWORD: 'user'
       MYSQL_ROOT_PASSWORD: 'root'
     ports:
       - '3306:3306'
@@ -90,8 +90,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      #      - "/Users/chenjiawei/dev/docker/ark/iam:/app/logs/iam"
-      - "C:\\docker\\ark\\iam:/app/logs/iam"
+      - "./iam:/app/logs/iam"
     env_file:
       - ./env/service-common.env
     depends_on:
@@ -104,19 +103,30 @@ services:
     ports:
       - "8089:8089"
     volumes:
-      #      - "/Users/chenjiawei/dev/docker/ark/iam:/app/logs/iam"
-      - "C:\\docker\\ark\\auth:/app/logs/auth"
+      - "./auth:/app/logs/auth"
     env_file:
       - ./env/service-common.env
     depends_on:
       - nacos
       - redis
-  order:
-    container_name: ark-center-order
-    image: ark-center-order:v1
+  trade:
+    container_name: ark-center-trade
+    image: ark-center-trade:v1
     restart: always
     ports:
       - "8085:8085"
+    env_file:
+      - ./env/service-common.env
+    depends_on:
+      - nacos
+      - redis
+      - rocketmq
+  pay:
+    container_name: ark-center-pay
+    image: ark-center-pay:v1
+    restart: always
+    ports:
+      - "8086:8086"
     env_file:
       - ./env/service-common.env
     depends_on:
@@ -157,7 +167,7 @@ services:
       - ./env/service-common.env
     volumes:
       - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
-#      - ./redis/data:/data
+    #      - ./redis/data:/data
     command:
       - 'redis-server'
       - '/usr/local/etc/redis/redis.conf'
