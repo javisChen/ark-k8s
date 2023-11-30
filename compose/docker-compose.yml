@@ -61,6 +61,58 @@ services:
       - "19876:8080"
     environment:
       JAVA_OPTS: -Drocketmq.config.namesrvAddr=rocketmq.ark-dev.svc:9876 -Drocketmq.config.isVIPChannel=false
+
+  redis:
+    container_name: redis
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
+    env_file:
+      - ./env/service-common.env
+    volumes:
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+    #      - ./redis/data:/data
+    command:
+      - 'redis-server'
+      - '/usr/local/etc/redis/redis.conf'
+  minio:
+    container_name: minio
+    image: minio/minio:latest
+    restart: always
+    ports:
+      - "9000:9000"
+      - "9100:9100"
+    environment:
+      LANG: C.UTF-8
+      TZ: "Asia/Shanghai"
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: admin123456
+    volumes:
+      - ./minio/data:/data
+      - ./minio/config:/root/.minio
+    command: server /data --console-address ":9100"
+
+  es-01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.7
+    container_name: es-01
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    restart: always
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+  kib-01:
+    image: docker.elastic.co/kibana/kibana:7.17.7
+    container_name: kib-01
+    volumes:
+      - ./elk/kibana/config:/usr/share/kibana/config
+    ports:
+      - "5601:5601"
+    restart: always
+    environment:
+      - ELASTICSEARCH_HOSTS=http://es-01:9200
   gateway:
     container_name: ark-center-gateway
     image: ark-center-gateway:v1
@@ -133,17 +185,17 @@ services:
       - nacos
       - redis
       - rocketmq
-  eop:
-    container_name: ark-center-eop
-    image: ark-center-eop:v1
-    restart: always
-    ports:
-      - "8081:8081"
-    env_file:
-      - ./env/service-common.env
-    depends_on:
-      - nacos
-      - redis
+#  eop:
+#    container_name: ark-center-eop
+#    image: ark-center-eop:v1
+#    restart: always
+#    ports:
+#      - "8081:8081"
+#    env_file:
+#      - ./env/service-common.env
+#    depends_on:
+#      - nacos
+#      - redis
   commodity:
     container_name: ark-center-commodity
     image: ark-center-commodity:v1
@@ -157,54 +209,3 @@ services:
       - redis
     command:
       - 'tail -f logs/commodity/commodity.log'
-  redis:
-    container_name: redis
-    image: redis:latest
-    restart: always
-    ports:
-      - "6379:6379"
-    env_file:
-      - ./env/service-common.env
-    volumes:
-      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
-    #      - ./redis/data:/data
-    command:
-      - 'redis-server'
-      - '/usr/local/etc/redis/redis.conf'
-  minio:
-    container_name: minio
-    image: minio/minio:latest
-    restart: always
-    ports:
-      - "9000:9000"
-      - "9100:9100"
-    environment:
-      LANG: C.UTF-8
-      TZ: "Asia/Shanghai"
-      MINIO_ROOT_USER: admin
-      MINIO_ROOT_PASSWORD: admin123456
-    volumes:
-      - ./minio/data:/data
-      - ./minio/config:/root/.minio
-    command: server /data --console-address ":9100"
-
-  es-01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.7
-    container_name: es-01
-    ports:
-      - "9200:9200"
-      - "9300:9300"
-    restart: always
-    environment:
-      - discovery.type=single-node
-      - ES_JAVA_OPTS=-Xms512m -Xmx512m
-  kib-01:
-    image: docker.elastic.co/kibana/kibana:7.17.7
-    container_name: kib-01
-    volumes:
-      - ./elk/kibana/config:/usr/share/kibana/config
-    ports:
-      - "5601:5601"
-    restart: always
-    environment:
-      - ELASTICSEARCH_HOSTS=http://es-01:9200
