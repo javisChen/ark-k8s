@@ -61,7 +61,8 @@ services:
       - "19876:8080"
     environment:
       JAVA_OPTS: -Drocketmq.config.namesrvAddr=rocketmq.ark-dev.svc:9876 -Drocketmq.config.isVIPChannel=false
-
+    depends_on:
+      - rocketmq
   redis:
     container_name: redis
     image: redis:latest
@@ -135,6 +136,7 @@ services:
     depends_on:
       - nacos
       - redis
+      - minio
   iam:
     container_name: ark-center-iam
     image: ark-center-iam:v1
@@ -148,6 +150,7 @@ services:
     depends_on:
       - nacos
       - redis
+      - rocketmq
   auth:
     container_name: ark-center-auth
     image: ark-center-auth:v1
@@ -161,6 +164,8 @@ services:
     depends_on:
       - nacos
       - redis
+      - iam
+      - rocketmq
   trade:
     container_name: ark-center-trade
     image: ark-center-trade:v1
@@ -207,5 +212,6 @@ services:
     depends_on:
       - nacos
       - redis
+      - es-01
     command:
       - 'tail -f logs/commodity/commodity.log'
