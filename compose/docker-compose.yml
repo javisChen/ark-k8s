@@ -60,7 +60,7 @@ services:
     ports:
       - "19876:8080"
     environment:
-      JAVA_OPTS: -Drocketmq.config.namesrvAddr=rocketmq.ark-dev.svc:9876 -Drocketmq.config.isVIPChannel=false
+      JAVA_OPTS: -Drocketmq.config.namesrvAddr=rocketmq:9876 -Drocketmq.config.isVIPChannel=false
     depends_on:
       - rocketmq
   redis:
