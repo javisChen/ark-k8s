@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nacos:
-    image: nacos/nacos-server:v2.2.2-slim-ping
+    image: nacos/nacos-server:v2.2.2-slim
     container_name: nacos
     env_file:
       - env/nacos-standalone-mysql.env
@@ -11,6 +11,8 @@ services:
       - "9848:9848"
       - "9555:9555"
     restart: always
+    depends_on:
+      - mysql
   prometheus:
     image: prom/prometheus
     container_name: prometheus
@@ -90,7 +92,7 @@ services:
       MINIO_ROOT_USER: admin
       MINIO_ROOT_PASSWORD: admin123456
     volumes:
-      - ./minio/data:/data
+      - ./minio/data:/mnt/data
       - ./minio/config:/root/.minio
     command: server /data --console-address ":9100"
 
@@ -116,7 +118,7 @@ services:
       - ELASTICSEARCH_HOSTS=http://es-01:9200
   gateway:
     container_name: ark-center-gateway
-    image: ark-center-gateway:v1
+    image: ark-center-gateway:1.0.0
     restart: always
     ports:
       - "8082:8082"
@@ -127,7 +129,7 @@ services:
       - redis
   oss:
     container_name: ark-center-oss
-    image: ark-center-oss:v1
+    image: ark-center-oss:1.0.0
     restart: always
     ports:
       - "8084:8084"
@@ -139,7 +141,7 @@ services:
       - minio
   iam:
     container_name: ark-center-iam
-    image: ark-center-iam:v1
+    image: ark-center-iam:1.0.0
     restart: always
     ports:
       - "8080:8080"
@@ -153,7 +155,7 @@ services:
       - rocketmq
   auth:
     container_name: ark-center-auth
-    image: ark-center-auth:v1
+    image: ark-center-auth:1.0.0
     restart: always
     ports:
       - "8089:8089"
@@ -168,7 +170,7 @@ services:
       - rocketmq
   trade:
     container_name: ark-center-trade
-    image: ark-center-trade:v1
+    image: ark-center-trade:1.0.0
     restart: always
     ports:
       - "8085:8085"
@@ -180,7 +182,7 @@ services:
       - rocketmq
   pay:
     container_name: ark-center-pay
-    image: ark-center-pay:v1
+    image: ark-center-pay:1.0.0
     restart: always
     ports:
       - "8086:8086"
@@ -192,7 +194,7 @@ services:
       - rocketmq
 #  eop:
 #    container_name: ark-center-eop
-#    image: ark-center-eop:v1
+#    image: ark-center-eop:1.0.0
 #    restart: always
 #    ports:
 #      - "8081:8081"
@@ -203,7 +205,7 @@ services:
 #      - redis
   commodity:
     container_name: ark-center-commodity
-    image: ark-center-commodity:v1
+    image: ark-center-commodity:1.0.0
     restart: always
     ports:
       - "8083:8083"
@@ -213,5 +215,6 @@ services:
       - nacos
       - redis
       - es-01
+      - oss
     command:
       - 'tail -f logs/commodity/commodity.log'
