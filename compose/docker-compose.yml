@@ -203,9 +203,9 @@ services:
 #    depends_on:
 #      - nacos
 #      - redis
-  commodity:
-    container_name: ark-center-commodity
-    image: ark-center-commodity:1.0.0
+  product:
+    container_name: ark-center-product
+    image: ark-center-product:1.0.0
     restart: always
     ports:
       - "8083:8083"
@@ -217,4 +217,4 @@ services:
       - es-01
       - oss
     command:
-      - 'tail -f logs/commodity/commodity.log'
+      - 'tail -f logs/product/product.log'
