@@ -40,9 +40,9 @@ services:
     volumes:
       - ./volumes/mysql:/var/lib/mysql
     ports:
-      - '3306:3306'
+      - '33060:3306'
   rocketmq:
-    image: king019/rocketmq:console
+    image: king019/rocketmq
     container_name: rocketmq
     environment:
       JAVA_OPT_EXT: '-Xms128m -Xmx128m -Xmn64m -XX:MetaspaceSize=32m -XX:MaxMetaspaceSize=32m'
@@ -51,7 +51,6 @@ services:
     ports:
       - "9876:9876"
       - "10911:10911"
-      - "19876:8080"
     restart: always
     command:
       - /bin/sh
@@ -116,8 +115,9 @@ services:
     environment:
       - discovery.type=single-node
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
-    volumes:
-      - ./volumes/elasticsearch/data:/usr/share/elasticsearch/data
+#    volumes:
+#      - ./volumes/elasticsearch/data:/usr/share/elasticsearch/data
+#      - ./volumes/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
   kib-01:
     image: docker.elastic.co/kibana/kibana:7.17.7
     container_name: kib-01
