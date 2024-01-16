@@ -37,12 +37,12 @@ services:
       MYSQL_USER: 'user'
       MYSQL_PASSWORD: 'user'
       MYSQL_ROOT_PASSWORD: 'root'
+    volumes:
+      - ./volumes/mysql:/var/lib/mysql
     ports:
       - '3306:3306'
-    expose:
-      - '3306'
   rocketmq:
-    image: king019/rocketmq
+    image: king019/rocketmq:console
     container_name: rocketmq
     environment:
       JAVA_OPT_EXT: '-Xms128m -Xmx128m -Xmn64m -XX:MetaspaceSize=32m -XX:MaxMetaspaceSize=32m'
@@ -51,6 +51,7 @@ services:
     ports:
       - "9876:9876"
       - "10911:10911"
+      - "19876:8080"
     restart: always
     command:
       - /bin/sh
@@ -67,21 +68,21 @@ services:
       - rocketmq
   redis:
     container_name: redis
-    image: redis:latest
+    image: redis:6.2
     restart: always
     ports:
       - "6379:6379"
-    env_file:
-      - ./env/service-common.env
+    environment:
+      LANG: C.UTF-8
+      TZ: "Asia/Shanghai"
     volumes:
-      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
-    #      - ./redis/data:/data
+      - ./volumes/redis/redis.conf:/usr/local/etc/redis/redis.conf
     command:
       - 'redis-server'
       - '/usr/local/etc/redis/redis.conf'
   minio:
     container_name: minio
-    image: minio/minio:latest
+    image: minio/minio:RELEASE.2024-01-13T07-53-03Z-cpuv1
     restart: always
     ports:
       - "9000:9000"
@@ -92,9 +93,9 @@ services:
       MINIO_ROOT_USER: admin
       MINIO_ROOT_PASSWORD: admin123456
     volumes:
-      - ./minio/data:/mnt/data
-      - ./minio/config:/root/.minio
-    command: server /data --console-address ":9100"
+      - ./volumes/minio/data:/home/data
+      - ./volumes/minio/config:/root/.minio
+    command: server /home/data --console-address ":9100"
   canal:
     image: canal/canal-server:v1.1.7
 #    environment:
@@ -115,11 +116,13 @@ services:
     environment:
       - discovery.type=single-node
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    volumes:
+      - ./volumes/elasticsearch/data:/usr/share/elasticsearch/data
   kib-01:
     image: docker.elastic.co/kibana/kibana:7.17.7
     container_name: kib-01
     volumes:
-      - ./elk/kibana/config:/usr/share/kibana/config
+      - ./volumes/kibana/config:/usr/share/kibana/config
     ports:
       - "9400:5601"
     restart: always
