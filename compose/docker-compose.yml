@@ -37,8 +37,8 @@ services:
       MYSQL_USER: 'user'
       MYSQL_PASSWORD: 'user'
       MYSQL_ROOT_PASSWORD: 'root'
-    volumes:
-      - ./volumes/mysql:/var/lib/mysql
+#    volumes:
+#      - ./volumes/mysql:/var/lib/mysql
     ports:
       - '33060:3306'
   rocketmq:
