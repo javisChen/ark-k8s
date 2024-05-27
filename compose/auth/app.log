@@ -1,0 +1,500 @@
+[2024-05-27 10:10:42.916][WARN ][main][ip:172.18.0.6][xid:] c.a.n.client.logging.NacosLogging:64 - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+[2024-05-27 10:10:42.954][INFO ][background-preinit][ip:172.18.0.6][xid:] o.h.validator.internal.util.Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+[2024-05-27 10:10:43.302][WARN ][main][ip:172.18.0.6][xid:] c.a.n.client.logging.NacosLogging:64 - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+[2024-05-27 10:10:43.322][INFO ][main][ip:172.18.0.6][xid:] com.ark.center.auth.AuthApplication:50 - Starting AuthApplication using Java 21 with PID 1 (/app/ark-center-auth.jar started by root in /app)
+[2024-05-27 10:10:43.322][INFO ][main][ip:172.18.0.6][xid:] com.ark.center.auth.AuthApplication:668 - The following 1 profile is active: "dev"
+[2024-05-27 10:10:43.495][INFO ][main][ip:172.18.0.6][xid:] c.a.c.n.c.NacosConfigDataLoader:252 - [Nacos Config] Load config[dataId=common.yml, group=DEFAULT_GROUP] success
+[2024-05-27 10:10:43.496][DEBUG][main][ip:172.18.0.6][xid:] c.a.c.n.c.NacosConfigDataLoader:251 - [Nacos Config] config[dataId=common.yml, group=DEFAULT_GROUP] content: 
+spring:
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+[2024-05-27 10:10:43.496][INFO ][main][ip:172.18.0.6][xid:] c.a.c.n.c.NacosConfigDataLoader:252 - [Nacos Config] Load config[dataId=auth.yml, group=DEFAULT_GROUP] success
+[2024-05-27 10:10:43.496][DEBUG][main][ip:172.18.0.6][xid:] c.a.c.n.c.NacosConfigDataLoader:251 - [Nacos Config] config[dataId=auth.yml, group=DEFAULT_GROUP] content: 
+server:
+  port: 8089
+spring:
+  application:
+    name: auth
+  datasource:
+    url: jdbc:mysql://mysql:3306/iam?useSSL=false&useUnicode=true&characterEncoding=UTF-8&tinyInt1isBit=false&serverTimezone=Asia/Shanghai&serverTimezone=UTC&allowPublicKeyRetrieval=True
+    username: root
+    password: root
+    name: defaultDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+ark:
+  component:
+    mq:
+      rocketmq:
+        enabled: true
+        server: rocketmq:9876
+        producer:
+          group: 'auth_pg'
+[2024-05-27 10:10:45.670][INFO ][main][ip:172.18.0.6][xid:] o.s.d.r.c.RepositoryConfigurationDelegate:292 - Multiple Spring Data modules found, entering strict repository configuration mode
+[2024-05-27 10:10:45.673][INFO ][main][ip:172.18.0.6][xid:] o.s.d.r.c.RepositoryConfigurationDelegate:139 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024-05-27 10:10:45.715][INFO ][main][ip:172.18.0.6][xid:] o.s.d.r.c.RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 25 ms. Found 0 Redis repository interfaces.
+[2024-05-27 10:10:45.890][WARN ][main][ip:172.18.0.6][xid:] o.m.s.mapper.ClassPathMapperScanner:44 - No MyBatis mapper was found in '[com.ark.center.auth]' package. Please check your configuration.
+[2024-05-27 10:10:45.978][INFO ][main][ip:172.18.0.6][xid:] o.s.cloud.context.scope.GenericScope:282 - BeanFactory id=20d2b1e8-c179-3db2-9298-924443b24b5b
+[2024-05-27 10:10:46.623][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:429 - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[2024-05-27 10:10:46.632][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:46.637][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:46.648][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:46.652][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:46.654][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda/0x00000090017260b0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:46.660][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:46.668][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'spring.cloud.loadbalancer-org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:46.677][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'default.org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:46.682][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'default.org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:46.683][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'loadBalancerClientFactory' of type [org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:46.691][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'blockingLoadBalancerClient' of type [org.springframework.cloud.loadbalancer.blocking.client.BlockingLoadBalancerClient] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:46.702][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'loadBalancerServiceInstanceCookieTransformer' of type [org.springframework.cloud.loadbalancer.core.LoadBalancerServiceInstanceCookieTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:46.705][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'xForwarderHeadersTransformer' of type [org.springframework.cloud.loadbalancer.blocking.XForwardedHeadersTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:46.708][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:46.712][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'loadBalancerRequestFactory' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerRequestFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:46.715][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'loadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:46.719][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:429 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[2024-05-27 10:10:46.722][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:46.726][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:10:47.079][INFO ][main][ip:172.18.0.6][xid:] o.s.b.w.e.tomcat.TomcatWebServer:109 - Tomcat initialized with port 8089 (http)
+[2024-05-27 10:10:47.088][INFO ][main][ip:172.18.0.6][xid:] o.a.coyote.http11.Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8089"]
+[2024-05-27 10:10:47.089][INFO ][main][ip:172.18.0.6][xid:] o.a.catalina.core.StandardService:173 - Starting service [Tomcat]
+[2024-05-27 10:10:47.089][INFO ][main][ip:172.18.0.6][xid:] o.a.catalina.core.StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.17]
+[2024-05-27 10:10:47.128][INFO ][main][ip:172.18.0.6][xid:] o.a.c.c.C.[Tomcat].[localhost].[/]:173 - Initializing Spring embedded WebApplicationContext
+[2024-05-27 10:10:47.129][INFO ][main][ip:172.18.0.6][xid:] o.s.b.w.s.c.ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 3623 ms
+[2024-05-27 10:10:47.306][INFO ][main][ip:172.18.0.6][xid:] c.a.c.w.a.WebAutoConfiguration:35 - enable [ark-component-web-spring-boot-starter]
+[2024-05-27 10:10:47.610][INFO ][main][ip:172.18.0.6][xid:] c.a.c.c.a.ServiceContextAutoConfiguration:12 - enable [ark-component-context-spring-boot-starter]
+[2024-05-27 10:10:47.631][INFO ][main][ip:172.18.0.6][xid:] c.a.c.r.a.RedisCacheAutoConfiguration:24 - enable [ark-component-cache-redis-spring-boot-starter]
+[2024-05-27 10:10:48.854][INFO ][main][ip:172.18.0.6][xid:] c.a.c.m.r.a.CloudFeignAutoConfiguration:23 - enable [ark-component-microservice-rpc-feign]
+[2024-05-27 10:10:48.865][INFO ][main][ip:172.18.0.6][xid:] o.s.c.o.FeignClientFactoryBean:438 - For 'iam' URL not provided. Will try picking an instance via load-balancing.
+[2024-05-27 10:10:48.989][INFO ][main][ip:172.18.0.6][xid:] c.a.c.m.i.a.MQIntegrationListenAutoConfiguration:20 - enable [ark-component-mq-integration-spring-boot-starter]
+[2024-05-27 10:10:49.016][INFO ][main][ip:172.18.0.6][xid:] o.s.c.o.FeignClientFactoryBean:438 - For 'iam' URL not provided. Will try picking an instance via load-balancing.
+[2024-05-27 10:10:49.246][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:62 - initializer namespace from ans.namespace attribute : null
+[2024-05-27 10:10:49.246][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:66 - initializer namespace from ALIBABA_ALIWARE_NAMESPACE attribute :null
+[2024-05-27 10:10:49.247][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:73 - initializer namespace from namespace attribute :null
+[2024-05-27 10:10:49.254][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.a.n.p.a.s.c.ClientAuthPluginManager:56 - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+[2024-05-27 10:10:49.255][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.a.n.p.a.s.c.ClientAuthPluginManager:56 - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+[2024-05-27 10:10:49.348][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:108 - [RpcClientFactory] create a new rpc client of f493c3b1-16b6-4def-b7cb-4e153786e4d4
+[2024-05-27 10:10:49.350][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [f493c3b1-16b6-4def-b7cb-4e153786e4d4] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+[2024-05-27 10:10:49.350][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [f493c3b1-16b6-4def-b7cb-4e153786e4d4] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+[2024-05-27 10:10:49.350][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [f493c3b1-16b6-4def-b7cb-4e153786e4d4] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+[2024-05-27 10:10:49.359][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [f493c3b1-16b6-4def-b7cb-4e153786e4d4] Try to connect to server on start up, server: {serverIp = 'nacos', server main port = 8848}
+[2024-05-27 10:10:49.360][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.a.n.c.r.client.grpc.GrpcClient:182 - grpc client connection server:nacos ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+[2024-05-27 10:10:49.493][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [f493c3b1-16b6-4def-b7cb-4e153786e4d4] Success to connect to server [nacos:8848] on start up, connectionId = 1716775849375_172.18.0.6_50774
+[2024-05-27 10:10:49.494][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [f493c3b1-16b6-4def-b7cb-4e153786e4d4] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+[2024-05-27 10:10:49.494][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [f493c3b1-16b6-4def-b7cb-4e153786e4d4] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda/0x000000900137a338
+[2024-05-27 10:10:49.494][INFO ][com.alibaba.nacos.client.remote.worker][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [f493c3b1-16b6-4def-b7cb-4e153786e4d4] Notify connected event to listeners.
+[2024-05-27 10:10:49.494][INFO ][com.alibaba.nacos.client.remote.worker][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:78 - Grpc connection connect
+[2024-05-27 10:10:49.500][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:167 - [SUBSCRIBE-SERVICE] service:iam, group:DEFAULT_GROUP, clusters: 
+[2024-05-27 10:10:49.548][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:184 - init new ips(1) service: DEFAULT_GROUP@@iam -> [{"ip":"192.168.81.185","port":8080,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@iam","metadata":{"preserved.register.source":"SPRING_CLOUD"},"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]
+[2024-05-27 10:10:49.555][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:169 - current ips:(1) service: DEFAULT_GROUP@@iam -> [{"ip":"192.168.81.185","port":8080,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@iam","metadata":{"preserved.register.source":"SPRING_CLOUD"},"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]
+[2024-05-27 10:10:50.097][INFO ][nacos-grpc-client-executor-nacos-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [f493c3b1-16b6-4def-b7cb-4e153786e4d4] Receive server push request, request = NotifySubscriberRequest, requestId = 3
+[2024-05-27 10:10:50.098][INFO ][nacos-grpc-client-executor-nacos-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [f493c3b1-16b6-4def-b7cb-4e153786e4d4] Ack server push request, request = NotifySubscriberRequest, requestId = 3
+[2024-05-27 10:10:50.264][INFO ][main][ip:172.18.0.6][xid:] o.s.c.o.FeignClientFactoryBean:438 - For 'iam' URL not provided. Will try picking an instance via load-balancing.
+[2024-05-27 10:10:52.297][INFO ][main][ip:172.18.0.6][xid:] o.s.b.a.e.web.EndpointLinksResolver:58 - Exposing 19 endpoint(s) beneath base path '/actuator'
+[2024-05-27 10:10:52.662][INFO ][main][ip:172.18.0.6][xid:] o.s.s.web.DefaultSecurityFilterChain:54 - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4833bb83, com.ark.component.security.core.authentication.filter.TraceFilter@1a2bcce1, com.ark.component.security.core.authentication.filter.AccessCheckFilter@d4594a8, org.springframework.security.web.context.SecurityContextHolderFilter@5fe1b8d2, org.springframework.security.web.header.HeaderWriterFilter@5034e0c6, org.springframework.web.filter.CorsFilter@78002333, org.springframework.security.web.authentication.logout.LogoutFilter@1476e447, com.ark.center.auth.infra.authentication.login.code.SendSmsCodeFilter@2dba6013, com.ark.center.auth.infra.authentication.api.ApiAccessAuthenticationFilter@69b2ed81, com.ark.center.auth.infra.authentication.login.LoginAuthenticationFilter@4873d4cb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7a337217, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@10db002c, org.springframework.security.web.access.ExceptionTranslationFilter@4170ee0f, org.springframework.security.web.access.intercept.AuthorizationFilter@ae5eeee]
+[2024-05-27 10:10:53.047][INFO ][main][ip:172.18.0.6][xid:] o.s.s.web.DefaultSecurityFilterChain:54 - Will secure org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer$$Lambda/0x0000009001a4c6d8@42ea4bac with [org.springframework.security.web.session.DisableEncodeUrlFilter@4df50829, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@627a1c77, com.ark.component.security.core.authentication.filter.TraceFilter@1acfb04c, com.ark.component.security.core.authentication.filter.AccessCheckFilter@a683f92, org.springframework.security.web.context.SecurityContextHolderFilter@12f85dc8, org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.AuthorizationServerContextFilter@5409305f, org.springframework.security.web.header.HeaderWriterFilter@6d3b59e2, org.springframework.web.filter.CorsFilter@6fb9dab6, org.springframework.security.web.csrf.CsrfFilter@3d0c88f4, org.springframework.security.oauth2.server.authorization.oidc.web.OidcLogoutEndpointFilter@3e216fc9, org.springframework.security.web.authentication.logout.LogoutFilter@56f3f9da, org.springframework.security.oauth2.server.authorization.web.OAuth2AuthorizationServerMetadataEndpointFilter@1dad97ed, org.springframework.security.oauth2.server.authorization.web.OAuth2AuthorizationEndpointFilter@c6b08a5, org.springframework.security.oauth2.server.authorization.web.OAuth2DeviceVerificationEndpointFilter@3514ea20, org.springframework.security.oauth2.server.authorization.oidc.web.OidcProviderConfigurationEndpointFilter@6eb506d0, org.springframework.security.oauth2.server.authorization.web.NimbusJwkSetEndpointFilter@43e6bcfd, org.springframework.security.oauth2.server.authorization.web.OAuth2ClientAuthenticationFilter@362d91ef, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@a15e4fd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@353aadd7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@64a009e7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d12fa92, org.springframework.security.web.access.ExceptionTranslationFilter@3c6c87fa, org.springframework.security.web.access.intercept.AuthorizationFilter@4b9187de, org.springframework.security.oauth2.server.authorization.web.OAuth2TokenEndpointFilter@3794621d, org.springframework.security.oauth2.server.authorization.web.OAuth2TokenIntrospectionEndpointFilter@bc70176, org.springframework.security.oauth2.server.authorization.web.OAuth2TokenRevocationEndpointFilter@7f8f120c, org.springframework.security.oauth2.server.authorization.web.OAuth2DeviceAuthorizationEndpointFilter@690337df, org.springframework.security.oauth2.server.authorization.oidc.web.OidcUserInfoEndpointFilter@2fb36d8d]
+[2024-05-27 10:10:53.215][INFO ][main][ip:172.18.0.6][xid:] c.a.c.e.a.ExceptionAutoConfiguration:25 - enable [ark-component-exception-spring-boot-starter]
+[2024-05-27 10:10:53.410][INFO ][main][ip:172.18.0.6][xid:] c.a.c.c.a.CloudCommonAutoConfiguration:17 - enable [ark-component-common-spring-boot-starter]
+[2024-05-27 10:10:53.423][INFO ][main][ip:172.18.0.6][xid:] c.a.c.m.r.a.RocketMQAutoConfiguration:24 - enable [ark-component-mq-integration-spring-boot-starter]
+[2024-05-27 10:10:53.579][INFO ][main][ip:172.18.0.6][xid:] c.a.c.s.a.SecurityAutoConfiguration:18 - enable [ark-component-security-spring-boot-starter]
+[2024-05-27 10:10:55.095][INFO ][main][ip:172.18.0.6][xid:] o.a.coyote.http11.Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8089"]
+[2024-05-27 10:10:55.209][INFO ][main][ip:172.18.0.6][xid:] o.s.b.w.e.tomcat.TomcatWebServer:241 - Tomcat started on port 8089 (http) with context path ''
+[2024-05-27 10:10:55.213][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:121 - [REGISTER-SERVICE] aaff0c75-80b1-4c85-ad3f-c625501368ba registering service auth with instance Instance{instanceId='null', ip='192.168.84.47', port=8089, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={preserved.register.source=SPRING_CLOUD}}
+[2024-05-27 10:10:55.272][INFO ][main][ip:172.18.0.6][xid:] c.a.c.n.r.NacosServiceRegistry:76 - nacos registry, DEFAULT_GROUP auth 192.168.84.47:8089 register finished
+[2024-05-27 10:10:55.668][INFO ][main][ip:172.18.0.6][xid:] com.ark.center.auth.AuthApplication:56 - Started AuthApplication in 15.505 seconds (process running for 16.698)
+[2024-05-27 10:11:01.782][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:11:01.793][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:11:01.791][ERROR][main][ip:172.18.0.6][xid:] c.a.c.m.i.MessageListenRegister:75 - [MQ]:Consumer failed to listen,[com.ark.center.auth.adapter.user.consumer.UserPermissionChangedConsumer] listen error, config:[MQListenerConfig(consumeTimeout=15, consumerGroup=cg_iam_user_api_perms_changed, topic=topic_iam, tag=tag_user_api_perms_changed, consumeMode=CLUSTERING, mqType=ROCKET)]
+com.ark.component.mq.exception.MQListenException: java.lang.IllegalStateException: org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to [rocketmq:9876] failed
+	at com.ark.component.mq.rocket.listener.RocketMQListener.listen(RocketMQListener.java:50)
+	at com.ark.component.mq.integration.MessageListenRegister.doListen(MessageListenRegister.java:72)
+	at com.ark.component.mq.integration.MessageListenRegister.lambda$start$0(MessageListenRegister.java:38)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:986)
+	at com.ark.component.mq.integration.MessageListenRegister.start(MessageListenRegister.java:38)
+	at com.ark.component.mq.integration.MessageListenRegister.run(MessageListenRegister.java:32)
+	at org.springframework.boot.SpringApplication.lambda$callRunner$4(SpringApplication.java:794)
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:83)
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60)
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:88)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:806)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:794)
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:782)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:782)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:341)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1358)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1347)
+	at com.ark.center.auth.AuthApplication.main(AuthApplication.java:15)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:91)
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:53)
+	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:58)
+Caused by: java.lang.IllegalStateException: org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to [rocketmq:9876] failed
+	at org.apache.rocketmq.client.impl.factory.MQClientInstance.updateTopicRouteInfoFromNameServer(MQClientInstance.java:680)
+	at org.apache.rocketmq.client.impl.factory.MQClientInstance.updateTopicRouteInfoFromNameServer(MQClientInstance.java:510)
+	at org.apache.rocketmq.client.impl.consumer.DefaultMQPushConsumerImpl.updateTopicSubscribeInfoWhenSubscriptionChanged(DefaultMQPushConsumerImpl.java:872)
+	at org.apache.rocketmq.client.impl.consumer.DefaultMQPushConsumerImpl.start(DefaultMQPushConsumerImpl.java:655)
+	at org.apache.rocketmq.client.consumer.DefaultMQPushConsumer.start(DefaultMQPushConsumer.java:707)
+	at com.ark.component.mq.rocket.listener.RocketMQListener.listen(RocketMQListener.java:48)
+	... 30 common frames omitted
+Caused by: org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to [rocketmq:9876] failed
+	at org.apache.rocketmq.remoting.netty.NettyRemotingClient.getAndCreateNameserverChannel(NettyRemotingClient.java:458)
+	at org.apache.rocketmq.remoting.netty.NettyRemotingClient.getAndCreateChannel(NettyRemotingClient.java:413)
+	at org.apache.rocketmq.remoting.netty.NettyRemotingClient.invokeSync(NettyRemotingClient.java:382)
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.getTopicRouteInfoFromNameServer(MQClientAPIImpl.java:1394)
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.getTopicRouteInfoFromNameServer(MQClientAPIImpl.java:1384)
+	at org.apache.rocketmq.client.impl.factory.MQClientInstance.updateTopicRouteInfoFromNameServer(MQClientInstance.java:623)
+	... 35 common frames omitted
+[2024-05-27 10:11:01.820][INFO ][main][ip:172.18.0.6][xid:] o.s.b.a.l.ConditionEvaluationReportLogger:82 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+[2024-05-27 10:11:01.862][ERROR][main][ip:172.18.0.6][xid:] o.s.boot.SpringApplication:855 - Application run failed
+com.ark.component.mq.exception.MQListenException: com.ark.component.mq.exception.MQListenException: java.lang.IllegalStateException: org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to [rocketmq:9876] failed
+	at com.ark.component.mq.integration.MessageListenRegister.doListen(MessageListenRegister.java:76)
+	at com.ark.component.mq.integration.MessageListenRegister.lambda$start$0(MessageListenRegister.java:38)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:986)
+	at com.ark.component.mq.integration.MessageListenRegister.start(MessageListenRegister.java:38)
+	at com.ark.component.mq.integration.MessageListenRegister.run(MessageListenRegister.java:32)
+	at org.springframework.boot.SpringApplication.lambda$callRunner$4(SpringApplication.java:794)
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:83)
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60)
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:88)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:806)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:794)
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:782)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:782)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:341)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1358)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1347)
+	at com.ark.center.auth.AuthApplication.main(AuthApplication.java:15)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:91)
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:53)
+	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:58)
+Caused by: com.ark.component.mq.exception.MQListenException: java.lang.IllegalStateException: org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to [rocketmq:9876] failed
+	at com.ark.component.mq.rocket.listener.RocketMQListener.listen(RocketMQListener.java:50)
+	at com.ark.component.mq.integration.MessageListenRegister.doListen(MessageListenRegister.java:72)
+	... 29 common frames omitted
+Caused by: java.lang.IllegalStateException: org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to [rocketmq:9876] failed
+	at org.apache.rocketmq.client.impl.factory.MQClientInstance.updateTopicRouteInfoFromNameServer(MQClientInstance.java:680)
+	at org.apache.rocketmq.client.impl.factory.MQClientInstance.updateTopicRouteInfoFromNameServer(MQClientInstance.java:510)
+	at org.apache.rocketmq.client.impl.consumer.DefaultMQPushConsumerImpl.updateTopicSubscribeInfoWhenSubscriptionChanged(DefaultMQPushConsumerImpl.java:872)
+	at org.apache.rocketmq.client.impl.consumer.DefaultMQPushConsumerImpl.start(DefaultMQPushConsumerImpl.java:655)
+	at org.apache.rocketmq.client.consumer.DefaultMQPushConsumer.start(DefaultMQPushConsumer.java:707)
+	at com.ark.component.mq.rocket.listener.RocketMQListener.listen(RocketMQListener.java:48)
+	... 30 common frames omitted
+Caused by: org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to [rocketmq:9876] failed
+	at org.apache.rocketmq.remoting.netty.NettyRemotingClient.getAndCreateNameserverChannel(NettyRemotingClient.java:458)
+	at org.apache.rocketmq.remoting.netty.NettyRemotingClient.getAndCreateChannel(NettyRemotingClient.java:413)
+	at org.apache.rocketmq.remoting.netty.NettyRemotingClient.invokeSync(NettyRemotingClient.java:382)
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.getTopicRouteInfoFromNameServer(MQClientAPIImpl.java:1394)
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.getTopicRouteInfoFromNameServer(MQClientAPIImpl.java:1384)
+	at org.apache.rocketmq.client.impl.factory.MQClientInstance.updateTopicRouteInfoFromNameServer(MQClientInstance.java:623)
+	... 35 common frames omitted
+[2024-05-27 10:11:01.960][INFO ][main][ip:172.18.0.6][xid:] c.a.c.n.r.NacosServiceRegistry:95 - De-registering from Nacos Server now...
+[2024-05-27 10:11:01.960][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:217 - [DEREGISTER-SERVICE] aaff0c75-80b1-4c85-ad3f-c625501368ba deregistering service auth with instance: Instance{instanceId='null', ip='192.168.84.47', port=8089, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={}}
+[2024-05-27 10:11:02.011][INFO ][main][ip:172.18.0.6][xid:] c.a.c.n.r.NacosServiceRegistry:115 - De-registration finished.
+[2024-05-27 10:11:02.013][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:256 - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown begin
+[2024-05-27 10:11:02.013][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:136 - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown begin
+[2024-05-27 10:11:02.019][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:138 - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown stop
+[2024-05-27 10:11:02.019][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:258 - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown stop
+[2024-05-27 10:11:02.019][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:204 - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown begin
+[2024-05-27 10:11:02.019][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:143 - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown begin
+[2024-05-27 10:11:02.021][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:145 - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown stop
+[2024-05-27 10:11:02.021][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:194 - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown begin
+[2024-05-27 10:11:02.022][WARN ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:74 - [NamingHttpClientManager] Start destroying NacosRestTemplate
+[2024-05-27 10:11:02.022][WARN ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:81 - [NamingHttpClientManager] Destruction of the end
+[2024-05-27 10:11:02.025][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:199 - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown stop
+[2024-05-27 10:11:02.025][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:484 - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown begin
+[2024-05-27 10:11:02.025][WARN ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:74 - [NamingHttpClientManager] Start destroying NacosRestTemplate
+[2024-05-27 10:11:02.025][WARN ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:81 - [NamingHttpClientManager] Destruction of the end
+[2024-05-27 10:11:02.025][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:486 - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown stop
+[2024-05-27 10:11:02.025][INFO ][main][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:429 - Shutdown rpc client, set status to shutdown
+[2024-05-27 10:11:02.025][INFO ][main][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:431 - Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@6aaf04e6[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+[2024-05-27 10:11:02.025][INFO ][main][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:584 - Close current connection 1716775849375_172.18.0.6_50774
+[2024-05-27 10:11:02.041][INFO ][main][ip:172.18.0.6][xid:] c.a.n.c.r.client.grpc.GrpcClient:159 - Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@269afe83[Running, pool size = 4, active threads = 0, queued tasks = 0, completed tasks = 14]
+[2024-05-27 10:11:02.042][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:318 - Shutdown grpc redo service executor java.util.concurrent.ScheduledThreadPoolExecutor@57b6332e[Running, pool size = 1, active threads = 0, queued tasks = 1, completed tasks = 4]
+[2024-05-27 10:11:02.042][INFO ][main][ip:172.18.0.6][xid:] c.a.n.c.a.r.i.CredentialWatcher:106 - [null] CredentialWatcher is stopped
+[2024-05-27 10:11:02.043][INFO ][main][ip:172.18.0.6][xid:] c.a.n.c.a.r.i.CredentialService:100 - [null] CredentialService is freed
+[2024-05-27 10:11:02.043][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:211 - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown stop
+[2024-05-27 10:11:06.435][INFO ][com.alibaba.nacos.client.Worker][ip:172.18.0.6][xid:] c.a.n.c.a.r.i.CredentialWatcher:165 - null No credential found
+[2024-05-27 10:11:15.146][WARN ][Thread-1][ip:172.18.0.6][xid:] c.a.n.c.http.HttpClientBeanHolder:102 - [HttpClientBeanHolder] Start destroying common HttpClient
+[2024-05-27 10:11:15.157][WARN ][Thread-1][ip:172.18.0.6][xid:] c.a.n.c.http.HttpClientBeanHolder:111 - [HttpClientBeanHolder] Destruction of the end
+[2024-05-27 10:11:19.175][WARN ][main][ip:172.18.0.6][xid:] c.a.n.client.logging.NacosLogging:64 - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+[2024-05-27 10:11:19.196][INFO ][background-preinit][ip:172.18.0.6][xid:] o.h.validator.internal.util.Version:21 - HV000001: Hibernate Validator 8.0.1.Final
+[2024-05-27 10:11:19.265][WARN ][main][ip:172.18.0.6][xid:] c.a.n.client.logging.NacosLogging:64 - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+[2024-05-27 10:11:19.273][INFO ][main][ip:172.18.0.6][xid:] com.ark.center.auth.AuthApplication:50 - Starting AuthApplication using Java 21 with PID 1 (/app/ark-center-auth.jar started by root in /app)
+[2024-05-27 10:11:19.274][INFO ][main][ip:172.18.0.6][xid:] com.ark.center.auth.AuthApplication:668 - The following 1 profile is active: "dev"
+[2024-05-27 10:11:19.336][INFO ][main][ip:172.18.0.6][xid:] c.a.c.n.c.NacosConfigDataLoader:252 - [Nacos Config] Load config[dataId=common.yml, group=DEFAULT_GROUP] success
+[2024-05-27 10:11:19.336][DEBUG][main][ip:172.18.0.6][xid:] c.a.c.n.c.NacosConfigDataLoader:251 - [Nacos Config] config[dataId=common.yml, group=DEFAULT_GROUP] content: 
+spring:
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+[2024-05-27 10:11:19.336][INFO ][main][ip:172.18.0.6][xid:] c.a.c.n.c.NacosConfigDataLoader:252 - [Nacos Config] Load config[dataId=auth.yml, group=DEFAULT_GROUP] success
+[2024-05-27 10:11:19.337][DEBUG][main][ip:172.18.0.6][xid:] c.a.c.n.c.NacosConfigDataLoader:251 - [Nacos Config] config[dataId=auth.yml, group=DEFAULT_GROUP] content: 
+server:
+  port: 8089
+spring:
+  application:
+    name: auth
+  datasource:
+    url: jdbc:mysql://mysql:3306/iam?useSSL=false&useUnicode=true&characterEncoding=UTF-8&tinyInt1isBit=false&serverTimezone=Asia/Shanghai&serverTimezone=UTC&allowPublicKeyRetrieval=True
+    username: root
+    password: root
+    name: defaultDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+ark:
+  component:
+    mq:
+      rocketmq:
+        enabled: true
+        server: rocketmq:9876
+        producer:
+          group: 'auth_pg'
+[2024-05-27 10:11:20.611][INFO ][main][ip:172.18.0.6][xid:] o.s.d.r.c.RepositoryConfigurationDelegate:292 - Multiple Spring Data modules found, entering strict repository configuration mode
+[2024-05-27 10:11:20.617][INFO ][main][ip:172.18.0.6][xid:] o.s.d.r.c.RepositoryConfigurationDelegate:139 - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2024-05-27 10:11:20.671][INFO ][main][ip:172.18.0.6][xid:] o.s.d.r.c.RepositoryConfigurationDelegate:208 - Finished Spring Data repository scanning in 35 ms. Found 0 Redis repository interfaces.
+[2024-05-27 10:11:20.833][WARN ][main][ip:172.18.0.6][xid:] o.m.s.mapper.ClassPathMapperScanner:44 - No MyBatis mapper was found in '[com.ark.center.auth]' package. Please check your configuration.
+[2024-05-27 10:11:20.920][INFO ][main][ip:172.18.0.6][xid:] o.s.cloud.context.scope.GenericScope:282 - BeanFactory id=20d2b1e8-c179-3db2-9298-924443b24b5b
+[2024-05-27 10:11:21.374][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:429 - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$LoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[2024-05-27 10:11:21.378][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.381][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.392][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration' of type [org.springframework.cloud.commons.config.CommonsConfigAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.395][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.397][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'loadBalancerClientsDefaultsMappingsProvider' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerDefaultMappingsProviderAutoConfiguration$$Lambda/0x000000080171dc58] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.410][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'defaultsBindHandlerAdvisor' of type [org.springframework.cloud.commons.config.DefaultsBindHandlerAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.416][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'spring.cloud.loadbalancer-org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerClientsProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.426][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'default.org.springframework.cloud.loadbalancer.config.LoadBalancerAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.430][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'default.org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration.LoadBalancerClientSpecification' of type [org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientSpecification] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.432][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'loadBalancerClientFactory' of type [org.springframework.cloud.loadbalancer.support.LoadBalancerClientFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.445][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'blockingLoadBalancerClient' of type [org.springframework.cloud.loadbalancer.blocking.client.BlockingLoadBalancerClient] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.460][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'loadBalancerServiceInstanceCookieTransformer' of type [org.springframework.cloud.loadbalancer.core.LoadBalancerServiceInstanceCookieTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.464][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'xForwarderHeadersTransformer' of type [org.springframework.cloud.loadbalancer.blocking.XForwardedHeadersTransformer] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.467][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.470][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'loadBalancerRequestFactory' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerRequestFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.472][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'loadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.475][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:429 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+[2024-05-27 10:11:21.478][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.480][WARN ][main][ip:172.18.0.6][xid:] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:437 - Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+[2024-05-27 10:11:21.721][INFO ][main][ip:172.18.0.6][xid:] o.s.b.w.e.tomcat.TomcatWebServer:109 - Tomcat initialized with port 8089 (http)
+[2024-05-27 10:11:21.729][INFO ][main][ip:172.18.0.6][xid:] o.a.coyote.http11.Http11NioProtocol:173 - Initializing ProtocolHandler ["http-nio-8089"]
+[2024-05-27 10:11:21.730][INFO ][main][ip:172.18.0.6][xid:] o.a.catalina.core.StandardService:173 - Starting service [Tomcat]
+[2024-05-27 10:11:21.730][INFO ][main][ip:172.18.0.6][xid:] o.a.catalina.core.StandardEngine:173 - Starting Servlet engine: [Apache Tomcat/10.1.17]
+[2024-05-27 10:11:21.763][INFO ][main][ip:172.18.0.6][xid:] o.a.c.c.C.[Tomcat].[localhost].[/]:173 - Initializing Spring embedded WebApplicationContext
+[2024-05-27 10:11:21.763][INFO ][main][ip:172.18.0.6][xid:] o.s.b.w.s.c.ServletWebServerApplicationContext:296 - Root WebApplicationContext: initialization completed in 2423 ms
+[2024-05-27 10:11:21.869][INFO ][main][ip:172.18.0.6][xid:] c.a.c.w.a.WebAutoConfiguration:35 - enable [ark-component-web-spring-boot-starter]
+[2024-05-27 10:11:22.094][INFO ][main][ip:172.18.0.6][xid:] c.a.c.c.a.ServiceContextAutoConfiguration:12 - enable [ark-component-context-spring-boot-starter]
+[2024-05-27 10:11:22.106][INFO ][main][ip:172.18.0.6][xid:] c.a.c.r.a.RedisCacheAutoConfiguration:24 - enable [ark-component-cache-redis-spring-boot-starter]
+[2024-05-27 10:11:22.829][INFO ][main][ip:172.18.0.6][xid:] c.a.c.m.r.a.CloudFeignAutoConfiguration:23 - enable [ark-component-microservice-rpc-feign]
+[2024-05-27 10:11:22.836][INFO ][main][ip:172.18.0.6][xid:] o.s.c.o.FeignClientFactoryBean:438 - For 'iam' URL not provided. Will try picking an instance via load-balancing.
+[2024-05-27 10:11:22.893][INFO ][main][ip:172.18.0.6][xid:] c.a.c.m.i.a.MQIntegrationListenAutoConfiguration:20 - enable [ark-component-mq-integration-spring-boot-starter]
+[2024-05-27 10:11:22.903][INFO ][main][ip:172.18.0.6][xid:] o.s.c.o.FeignClientFactoryBean:438 - For 'iam' URL not provided. Will try picking an instance via load-balancing.
+[2024-05-27 10:11:23.067][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:62 - initializer namespace from ans.namespace attribute : null
+[2024-05-27 10:11:23.068][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:66 - initializer namespace from ALIBABA_ALIWARE_NAMESPACE attribute :null
+[2024-05-27 10:11:23.069][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:73 - initializer namespace from namespace attribute :null
+[2024-05-27 10:11:23.076][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.a.n.p.a.s.c.ClientAuthPluginManager:56 - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+[2024-05-27 10:11:23.076][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.a.n.p.a.s.c.ClientAuthPluginManager:56 - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+[2024-05-27 10:11:23.164][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:108 - [RpcClientFactory] create a new rpc client of 19a71777-e424-4707-bcc0-0cb493e759cf
+[2024-05-27 10:11:23.166][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [19a71777-e424-4707-bcc0-0cb493e759cf] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+[2024-05-27 10:11:23.166][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [19a71777-e424-4707-bcc0-0cb493e759cf] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+[2024-05-27 10:11:23.167][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [19a71777-e424-4707-bcc0-0cb493e759cf] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+[2024-05-27 10:11:23.168][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [19a71777-e424-4707-bcc0-0cb493e759cf] Try to connect to server on start up, server: {serverIp = 'nacos', server main port = 8848}
+[2024-05-27 10:11:23.169][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.a.n.c.r.client.grpc.GrpcClient:182 - grpc client connection server:nacos ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+[2024-05-27 10:11:23.302][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [19a71777-e424-4707-bcc0-0cb493e759cf] Success to connect to server [nacos:8848] on start up, connectionId = 1716775883184_172.18.0.6_37964
+[2024-05-27 10:11:23.303][INFO ][com.alibaba.nacos.client.remote.worker][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [19a71777-e424-4707-bcc0-0cb493e759cf] Notify connected event to listeners.
+[2024-05-27 10:11:23.303][INFO ][com.alibaba.nacos.client.remote.worker][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:78 - Grpc connection connect
+[2024-05-27 10:11:23.303][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [19a71777-e424-4707-bcc0-0cb493e759cf] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+[2024-05-27 10:11:23.303][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [19a71777-e424-4707-bcc0-0cb493e759cf] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda/0x000000080137e100
+[2024-05-27 10:11:23.305][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:167 - [SUBSCRIBE-SERVICE] service:iam, group:DEFAULT_GROUP, clusters: 
+[2024-05-27 10:11:23.332][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:184 - init new ips(1) service: DEFAULT_GROUP@@iam -> [{"ip":"192.168.81.185","port":8080,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@iam","metadata":{"preserved.register.source":"SPRING_CLOUD"},"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]
+[2024-05-27 10:11:23.338][INFO ][boundedElastic-1][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:169 - current ips:(1) service: DEFAULT_GROUP@@iam -> [{"ip":"192.168.81.185","port":8080,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@iam","metadata":{"preserved.register.source":"SPRING_CLOUD"},"instanceHeartBeatInterval":5000,"instanceHeartBeatTimeOut":15000,"ipDeleteTimeout":30000}]
+[2024-05-27 10:11:23.551][INFO ][main][ip:172.18.0.6][xid:] o.s.c.o.FeignClientFactoryBean:438 - For 'iam' URL not provided. Will try picking an instance via load-balancing.
+[2024-05-27 10:11:23.933][INFO ][nacos-grpc-client-executor-nacos-0][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [19a71777-e424-4707-bcc0-0cb493e759cf] Receive server push request, request = NotifySubscriberRequest, requestId = 6
+[2024-05-27 10:11:23.934][INFO ][nacos-grpc-client-executor-nacos-0][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:63 - [19a71777-e424-4707-bcc0-0cb493e759cf] Ack server push request, request = NotifySubscriberRequest, requestId = 6
+[2024-05-27 10:11:25.053][INFO ][main][ip:172.18.0.6][xid:] o.s.b.a.e.web.EndpointLinksResolver:58 - Exposing 19 endpoint(s) beneath base path '/actuator'
+[2024-05-27 10:11:25.211][INFO ][main][ip:172.18.0.6][xid:] o.s.s.web.DefaultSecurityFilterChain:54 - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1ef8cf89, com.ark.component.security.core.authentication.filter.TraceFilter@4bb05a4e, com.ark.component.security.core.authentication.filter.AccessCheckFilter@1d9e511c, org.springframework.security.web.context.SecurityContextHolderFilter@5503e208, org.springframework.security.web.header.HeaderWriterFilter@1c93f349, org.springframework.web.filter.CorsFilter@63cfd703, org.springframework.security.web.authentication.logout.LogoutFilter@4398d, com.ark.center.auth.infra.authentication.login.code.SendSmsCodeFilter@3b93d874, com.ark.center.auth.infra.authentication.api.ApiAccessAuthenticationFilter@72b88762, com.ark.center.auth.infra.authentication.login.LoginAuthenticationFilter@1d413e98, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5930a229, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5031786b, org.springframework.security.web.access.ExceptionTranslationFilter@18c2b4c6, org.springframework.security.web.access.intercept.AuthorizationFilter@5be521cd]
+[2024-05-27 10:11:25.430][INFO ][main][ip:172.18.0.6][xid:] o.s.s.web.DefaultSecurityFilterChain:54 - Will secure org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer$$Lambda/0x0000000801a09790@20ca2c3f with [org.springframework.security.web.session.DisableEncodeUrlFilter@134b9d9c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3199c2c1, com.ark.component.security.core.authentication.filter.TraceFilter@74c997b1, com.ark.component.security.core.authentication.filter.AccessCheckFilter@593f6c3, org.springframework.security.web.context.SecurityContextHolderFilter@74c74c99, org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.AuthorizationServerContextFilter@5c5cd332, org.springframework.security.web.header.HeaderWriterFilter@25c6a9de, org.springframework.web.filter.CorsFilter@4afb2c90, org.springframework.security.web.csrf.CsrfFilter@22120799, org.springframework.security.oauth2.server.authorization.oidc.web.OidcLogoutEndpointFilter@35b97c69, org.springframework.security.web.authentication.logout.LogoutFilter@37d43b9b, org.springframework.security.oauth2.server.authorization.web.OAuth2AuthorizationServerMetadataEndpointFilter@6723626f, org.springframework.security.oauth2.server.authorization.web.OAuth2AuthorizationEndpointFilter@14574cdf, org.springframework.security.oauth2.server.authorization.web.OAuth2DeviceVerificationEndpointFilter@57dee2b9, org.springframework.security.oauth2.server.authorization.oidc.web.OidcProviderConfigurationEndpointFilter@1193d400, org.springframework.security.oauth2.server.authorization.web.NimbusJwkSetEndpointFilter@7335aae5, org.springframework.security.oauth2.server.authorization.web.OAuth2ClientAuthenticationFilter@27d6ff8c, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@7798de95, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@25874884, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5068a2b1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@358b70c4, org.springframework.security.web.access.ExceptionTranslationFilter@23df16cf, org.springframework.security.web.access.intercept.AuthorizationFilter@6142b9dd, org.springframework.security.oauth2.server.authorization.web.OAuth2TokenEndpointFilter@7d6f31ef, org.springframework.security.oauth2.server.authorization.web.OAuth2TokenIntrospectionEndpointFilter@3152a0a3, org.springframework.security.oauth2.server.authorization.web.OAuth2TokenRevocationEndpointFilter@5216e43c, org.springframework.security.oauth2.server.authorization.web.OAuth2DeviceAuthorizationEndpointFilter@71e740c6, org.springframework.security.oauth2.server.authorization.oidc.web.OidcUserInfoEndpointFilter@65c75870]
+[2024-05-27 10:11:25.621][INFO ][main][ip:172.18.0.6][xid:] c.a.c.e.a.ExceptionAutoConfiguration:25 - enable [ark-component-exception-spring-boot-starter]
+[2024-05-27 10:11:25.795][INFO ][main][ip:172.18.0.6][xid:] c.a.c.c.a.CloudCommonAutoConfiguration:17 - enable [ark-component-common-spring-boot-starter]
+[2024-05-27 10:11:25.805][INFO ][main][ip:172.18.0.6][xid:] c.a.c.m.r.a.RocketMQAutoConfiguration:24 - enable [ark-component-mq-integration-spring-boot-starter]
+[2024-05-27 10:11:25.921][INFO ][main][ip:172.18.0.6][xid:] c.a.c.s.a.SecurityAutoConfiguration:18 - enable [ark-component-security-spring-boot-starter]
+[2024-05-27 10:11:26.017][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:11:26.852][INFO ][main][ip:172.18.0.6][xid:] o.a.coyote.http11.Http11NioProtocol:173 - Starting ProtocolHandler ["http-nio-8089"]
+[2024-05-27 10:11:26.878][INFO ][main][ip:172.18.0.6][xid:] o.s.b.w.e.tomcat.TomcatWebServer:241 - Tomcat started on port 8089 (http) with context path ''
+[2024-05-27 10:11:26.881][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:121 - [REGISTER-SERVICE] aaff0c75-80b1-4c85-ad3f-c625501368ba registering service auth with instance Instance{instanceId='null', ip='192.168.84.47', port=8089, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={preserved.register.source=SPRING_CLOUD}}
+[2024-05-27 10:11:26.898][INFO ][main][ip:172.18.0.6][xid:] c.a.c.n.r.NacosServiceRegistry:76 - nacos registry, DEFAULT_GROUP auth 192.168.84.47:8089 register finished
+[2024-05-27 10:11:26.921][INFO ][main][ip:172.18.0.6][xid:] com.ark.center.auth.AuthApplication:56 - Started AuthApplication in 9.623 seconds (process running for 11.033)
+[2024-05-27 10:11:27.022][ERROR][main][ip:172.18.0.6][xid:] c.a.c.m.i.MessageListenRegister:75 - [MQ]:Consumer failed to listen,[com.ark.center.auth.adapter.user.consumer.UserPermissionChangedConsumer] listen error, config:[MQListenerConfig(consumeTimeout=15, consumerGroup=cg_iam_user_api_perms_changed, topic=topic_iam, tag=tag_user_api_perms_changed, consumeMode=CLUSTERING, mqType=ROCKET)]
+com.ark.component.mq.exception.MQListenException: java.lang.IllegalStateException: org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to [rocketmq:9876] failed
+	at com.ark.component.mq.rocket.listener.RocketMQListener.listen(RocketMQListener.java:50)
+	at com.ark.component.mq.integration.MessageListenRegister.doListen(MessageListenRegister.java:72)
+	at com.ark.component.mq.integration.MessageListenRegister.lambda$start$0(MessageListenRegister.java:38)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:986)
+	at com.ark.component.mq.integration.MessageListenRegister.start(MessageListenRegister.java:38)
+	at com.ark.component.mq.integration.MessageListenRegister.run(MessageListenRegister.java:32)
+	at org.springframework.boot.SpringApplication.lambda$callRunner$4(SpringApplication.java:794)
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:83)
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60)
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:88)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:806)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:794)
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:782)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:782)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:341)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1358)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1347)
+	at com.ark.center.auth.AuthApplication.main(AuthApplication.java:15)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:91)
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:53)
+	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:58)
+Caused by: java.lang.IllegalStateException: org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to [rocketmq:9876] failed
+	at org.apache.rocketmq.client.impl.factory.MQClientInstance.updateTopicRouteInfoFromNameServer(MQClientInstance.java:680)
+	at org.apache.rocketmq.client.impl.factory.MQClientInstance.updateTopicRouteInfoFromNameServer(MQClientInstance.java:510)
+	at org.apache.rocketmq.client.impl.consumer.DefaultMQPushConsumerImpl.updateTopicSubscribeInfoWhenSubscriptionChanged(DefaultMQPushConsumerImpl.java:872)
+	at org.apache.rocketmq.client.impl.consumer.DefaultMQPushConsumerImpl.start(DefaultMQPushConsumerImpl.java:655)
+	at org.apache.rocketmq.client.consumer.DefaultMQPushConsumer.start(DefaultMQPushConsumer.java:707)
+	at com.ark.component.mq.rocket.listener.RocketMQListener.listen(RocketMQListener.java:48)
+	... 30 common frames omitted
+Caused by: org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to [rocketmq:9876] failed
+	at org.apache.rocketmq.remoting.netty.NettyRemotingClient.getAndCreateNameserverChannel(NettyRemotingClient.java:458)
+	at org.apache.rocketmq.remoting.netty.NettyRemotingClient.getAndCreateChannel(NettyRemotingClient.java:413)
+	at org.apache.rocketmq.remoting.netty.NettyRemotingClient.invokeSync(NettyRemotingClient.java:382)
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.getTopicRouteInfoFromNameServer(MQClientAPIImpl.java:1394)
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.getTopicRouteInfoFromNameServer(MQClientAPIImpl.java:1384)
+	at org.apache.rocketmq.client.impl.factory.MQClientInstance.updateTopicRouteInfoFromNameServer(MQClientInstance.java:623)
+	... 35 common frames omitted
+[2024-05-27 10:11:27.025][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:11:27.026][INFO ][main][ip:172.18.0.6][xid:] o.s.b.a.l.ConditionEvaluationReportLogger:82 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+[2024-05-27 10:11:27.028][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:11:27.043][ERROR][main][ip:172.18.0.6][xid:] o.s.boot.SpringApplication:855 - Application run failed
+com.ark.component.mq.exception.MQListenException: com.ark.component.mq.exception.MQListenException: java.lang.IllegalStateException: org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to [rocketmq:9876] failed
+	at com.ark.component.mq.integration.MessageListenRegister.doListen(MessageListenRegister.java:76)
+	at com.ark.component.mq.integration.MessageListenRegister.lambda$start$0(MessageListenRegister.java:38)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:986)
+	at com.ark.component.mq.integration.MessageListenRegister.start(MessageListenRegister.java:38)
+	at com.ark.component.mq.integration.MessageListenRegister.run(MessageListenRegister.java:32)
+	at org.springframework.boot.SpringApplication.lambda$callRunner$4(SpringApplication.java:794)
+	at org.springframework.util.function.ThrowingConsumer$1.acceptWithException(ThrowingConsumer.java:83)
+	at org.springframework.util.function.ThrowingConsumer.accept(ThrowingConsumer.java:60)
+	at org.springframework.util.function.ThrowingConsumer$1.accept(ThrowingConsumer.java:88)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:806)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:794)
+	at org.springframework.boot.SpringApplication.lambda$callRunners$3(SpringApplication.java:782)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:184)
+	at java.base/java.util.stream.SortedOps$SizedRefSortingSink.end(SortedOps.java:357)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:151)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:174)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:782)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:341)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1358)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1347)
+	at com.ark.center.auth.AuthApplication.main(AuthApplication.java:15)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:91)
+	at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:53)
+	at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:58)
+Caused by: com.ark.component.mq.exception.MQListenException: java.lang.IllegalStateException: org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to [rocketmq:9876] failed
+	at com.ark.component.mq.rocket.listener.RocketMQListener.listen(RocketMQListener.java:50)
+	at com.ark.component.mq.integration.MessageListenRegister.doListen(MessageListenRegister.java:72)
+	... 29 common frames omitted
+Caused by: java.lang.IllegalStateException: org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to [rocketmq:9876] failed
+	at org.apache.rocketmq.client.impl.factory.MQClientInstance.updateTopicRouteInfoFromNameServer(MQClientInstance.java:680)
+	at org.apache.rocketmq.client.impl.factory.MQClientInstance.updateTopicRouteInfoFromNameServer(MQClientInstance.java:510)
+	at org.apache.rocketmq.client.impl.consumer.DefaultMQPushConsumerImpl.updateTopicSubscribeInfoWhenSubscriptionChanged(DefaultMQPushConsumerImpl.java:872)
+	at org.apache.rocketmq.client.impl.consumer.DefaultMQPushConsumerImpl.start(DefaultMQPushConsumerImpl.java:655)
+	at org.apache.rocketmq.client.consumer.DefaultMQPushConsumer.start(DefaultMQPushConsumer.java:707)
+	at com.ark.component.mq.rocket.listener.RocketMQListener.listen(RocketMQListener.java:48)
+	... 30 common frames omitted
+Caused by: org.apache.rocketmq.remoting.exception.RemotingConnectException: connect to [rocketmq:9876] failed
+	at org.apache.rocketmq.remoting.netty.NettyRemotingClient.getAndCreateNameserverChannel(NettyRemotingClient.java:458)
+	at org.apache.rocketmq.remoting.netty.NettyRemotingClient.getAndCreateChannel(NettyRemotingClient.java:413)
+	at org.apache.rocketmq.remoting.netty.NettyRemotingClient.invokeSync(NettyRemotingClient.java:382)
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.getTopicRouteInfoFromNameServer(MQClientAPIImpl.java:1394)
+	at org.apache.rocketmq.client.impl.MQClientAPIImpl.getTopicRouteInfoFromNameServer(MQClientAPIImpl.java:1384)
+	at org.apache.rocketmq.client.impl.factory.MQClientInstance.updateTopicRouteInfoFromNameServer(MQClientInstance.java:623)
+	... 35 common frames omitted
+[2024-05-27 10:11:27.060][INFO ][main][ip:172.18.0.6][xid:] c.a.c.n.r.NacosServiceRegistry:95 - De-registering from Nacos Server now...
+[2024-05-27 10:11:27.061][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:217 - [DEREGISTER-SERVICE] aaff0c75-80b1-4c85-ad3f-c625501368ba deregistering service auth with instance: Instance{instanceId='null', ip='192.168.84.47', port=8089, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={}}
+[2024-05-27 10:11:27.071][INFO ][main][ip:172.18.0.6][xid:] c.a.c.n.r.NacosServiceRegistry:115 - De-registration finished.
+[2024-05-27 10:11:27.072][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:256 - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown begin
+[2024-05-27 10:11:27.073][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:136 - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown begin
+[2024-05-27 10:11:27.376][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:138 - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown stop
+[2024-05-27 10:11:27.376][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:258 - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown stop
+[2024-05-27 10:11:27.377][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:204 - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown begin
+[2024-05-27 10:11:27.377][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:143 - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown begin
+[2024-05-27 10:11:27.377][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:145 - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown stop
+[2024-05-27 10:11:27.377][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:194 - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown begin
+[2024-05-27 10:11:27.377][WARN ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:74 - [NamingHttpClientManager] Start destroying NacosRestTemplate
+[2024-05-27 10:11:27.377][WARN ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:81 - [NamingHttpClientManager] Destruction of the end
+[2024-05-27 10:11:27.377][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:199 - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown stop
+[2024-05-27 10:11:27.377][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:484 - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown begin
+[2024-05-27 10:11:27.377][WARN ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:74 - [NamingHttpClientManager] Start destroying NacosRestTemplate
+[2024-05-27 10:11:27.377][WARN ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:81 - [NamingHttpClientManager] Destruction of the end
+[2024-05-27 10:11:27.377][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:486 - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown stop
+[2024-05-27 10:11:27.377][INFO ][main][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:429 - Shutdown rpc client, set status to shutdown
+[2024-05-27 10:11:27.377][INFO ][main][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:431 - Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@71df9c3d[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+[2024-05-27 10:11:27.379][INFO ][main][ip:172.18.0.6][xid:] c.alibaba.nacos.common.remote.client:584 - Close current connection 1716775883184_172.18.0.6_37964
+[2024-05-27 10:11:27.382][INFO ][nacos-grpc-client-executor-nacos-4][ip:172.18.0.6][xid:] c.a.n.c.r.client.grpc.GrpcClient:63 - [1716775883184_172.18.0.6_37964]Ignore complete event,isRunning:false,isAbandon=false
+[2024-05-27 10:11:27.390][INFO ][main][ip:172.18.0.6][xid:] c.a.n.c.r.client.grpc.GrpcClient:159 - Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@511ecefa[Running, pool size = 8, active threads = 0, queued tasks = 0, completed tasks = 13]
+[2024-05-27 10:11:27.391][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:318 - Shutdown grpc redo service executor java.util.concurrent.ScheduledThreadPoolExecutor@3f196d55[Running, pool size = 1, active threads = 0, queued tasks = 1, completed tasks = 1]
+[2024-05-27 10:11:27.391][INFO ][main][ip:172.18.0.6][xid:] c.a.n.c.a.r.i.CredentialWatcher:106 - [null] CredentialWatcher is stopped
+[2024-05-27 10:11:27.391][INFO ][main][ip:172.18.0.6][xid:] c.a.n.c.a.r.i.CredentialService:100 - [null] CredentialService is freed
+[2024-05-27 10:11:27.392][INFO ][main][ip:172.18.0.6][xid:] com.alibaba.nacos.client.naming:211 - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown stop
+[2024-05-27 10:11:28.267][INFO ][com.alibaba.nacos.client.Worker][ip:172.18.0.6][xid:] c.a.n.c.a.r.i.CredentialWatcher:165 - null No credential found
+[2024-05-27 10:11:47.057][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:11:47.061][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:11:55.895][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:11:57.029][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:12:07.076][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:12:07.079][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:12:25.906][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:12:27.027][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:12:27.082][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:12:27.083][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:12:47.110][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:12:47.112][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:12:55.892][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:12:57.024][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:13:07.124][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:13:07.125][INFO ][NettyClientSelector_1][ip:172.18.0.6][xid:] RocketmqRemoting:95 - closeChannel: close the connection to remote address[] result: true
+[2024-05-27 10:13:11.215][WARN ][Thread-6][ip:172.18.0.6][xid:] c.a.nacos.common.notify.NotifyCenter:136 - [NotifyCenter] Start destroying Publisher
+[2024-05-27 10:13:11.215][WARN ][Thread-1][ip:172.18.0.6][xid:] c.a.n.c.http.HttpClientBeanHolder:102 - [HttpClientBeanHolder] Start destroying common HttpClient
+[2024-05-27 10:13:11.216][WARN ][Thread-6][ip:172.18.0.6][xid:] c.a.nacos.common.notify.NotifyCenter:153 - [NotifyCenter] Destruction of the end
+[2024-05-27 10:13:11.227][WARN ][Thread-1][ip:172.18.0.6][xid:] c.a.n.c.http.HttpClientBeanHolder:111 - [HttpClientBeanHolder] Destruction of the end

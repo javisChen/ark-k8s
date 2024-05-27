@@ -101,9 +101,9 @@ services:
       TZ: "Asia/Shanghai"
       MINIO_ROOT_USER: admin
       MINIO_ROOT_PASSWORD: admin123456
-    volumes:
-      - ./volumes/minio/data:/home/data
-      - ./volumes/minio/config:/root/.minio
+#    volumes:
+#      - ./volumes/minio/data:/home/data
+#      - ./volumes/minio/config:/root/.minio
     command: server /home/data --console-address ":9100"
   canal:
     image: canal/canal-server:v1.1.7
