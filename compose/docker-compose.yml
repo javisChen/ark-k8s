@@ -65,7 +65,9 @@ services:
     command:
       - /bin/sh
       - -c
-      - echo brokerIP1=$(hostname -i) > opt/soft/rocketmq/conf/broker.properties && /docker.sh
+# docker用下面这行
+#      - echo brokerIP1=$(hostname -i) > opt/soft/rocketmq/conf/broker.properties && /docker.sh
+      - echo 'brokerIP1=${IP}' > opt/soft/rocketmq/conf/broker.properties && /docker.sh
   rocketmq-console:
     image: apacherocketmq/rocketmq-dashboard:latest
     container_name: rocketmq-console
