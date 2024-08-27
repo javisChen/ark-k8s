@@ -181,8 +181,8 @@ services:
     restart: always
     ports:
       - "8089:8089"
-    volumes:
-      - "./auth:/app/logs/auth"
+#    volumes:
+#      - "./auth:/app/logs/auth"
     env_file:
       - ./env/service-common.env
     depends_on:
