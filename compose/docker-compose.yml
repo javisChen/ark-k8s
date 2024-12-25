@@ -50,12 +50,15 @@ services:
     ports:
       - '3306:3306'
   rocketmq:
-    image: king019/rocketmq
+    image: registry.cn-beijing.aliyuncs.com/king019/rocketmq
     container_name: rocketmq
     environment:
       JAVA_OPT_EXT: '-Xms128m -Xmx128m -Xmn64m -XX:MetaspaceSize=32m -XX:MaxMetaspaceSize=32m'
     env_file:
       - ./env/service-common.env
+    security_opt:
+      - seccomp:unconfined
+    privileged: true
     ports:
       - "9876:9876"
       - "10911:10911"
@@ -67,14 +70,23 @@ services:
 #      - echo brokerIP1=$(hostname -i) > opt/soft/rocketmq/conf/broker.properties && /docker.sh
       - echo 'brokerIP1=${IP}' > opt/soft/rocketmq/conf/broker.properties && /docker.sh
   rocketmq-console:
-    image: apacherocketmq/rocketmq-dashboard:latest
+    image: abcdelf/rocketmq-dashboard
     container_name: rocketmq-console
     ports:
       - "19876:8080"
     environment:
-      JAVA_OPTS: -Drocketmq.config.namesrvAddr=rocketmq:9876 -Drocketmq.config.isVIPChannel=false
+      JAVA_OPTS: "-Drocketmq.namesrv.addr=rocketmq:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"
     depends_on:
       - rocketmq
+#  rocketmq-console:
+#    image: apacherocketmq/rocketmq-dashboard:latest
+#    container_name: rocketmq-console
+#    ports:
+#      - "19876:8080"
+#    environment:
+#      JAVA_OPTS: -Drocketmq.config.namesrvAddr=rocketmq:9876 -Drocketmq.config.isVIPChannel=false
+#    depends_on:
+#      - rocketmq
   redis:
     container_name: redis
     image: redis:6.2

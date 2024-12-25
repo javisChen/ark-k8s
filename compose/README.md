@@ -7,3 +7,5 @@
 docker compose up -d [services]
 
 docker compose up -d --force-recreate [services]
+
+docker compose up -d --force-recreate iam auth gateway rocketmq
